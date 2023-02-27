@@ -7,6 +7,7 @@ namespace guessingGame
 
         static void Main(string[] args)
         {
+            startScreen:
             Console.Clear();
             Console.WriteLine("~~ Guessing Game!~~");
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~");
@@ -28,6 +29,10 @@ namespace guessingGame
             {
                 guesses = 4;
             }
+            if(difficulty == 8675309){
+                guesses = 999999;
+            }
+            else goto startScreen;
         
             Console.Clear();
             Random rnd = new Random();
