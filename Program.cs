@@ -6,22 +6,31 @@ namespace guessingGame
     {
         static void Main(string[] args)
         {
+            Console.Clear();
             Random rnd = new Random();
             int secretNumber = rnd.Next(1,100);
 
         for(int i = 1; i <= 4; i++){
-            Console.Clear();
+            if(i == 1){
             Console.WriteLine("Guess the secret number...");
+            }
             Console.Write($"Attempt {i}/4: ");
             string input = Console.ReadLine();
+            Console.Clear();
             int parsedInput = int.Parse(input);
             if (parsedInput == secretNumber)
             {
-                Console.WriteLine("You guessed right, the secret number is 42!");
+                Console.WriteLine($"The correct answer is {secretNumber}!");
+                Console.WriteLine("Conglaturations, a winner is you!");
                 break;
             }
             if(i != 4 && parsedInput != secretNumber)
-                Console.WriteLine($"{parsedInput} is not the secret number, try again!");
+                if(secretNumber < parsedInput){
+                    Console.WriteLine($"{parsedInput} is to high! guess lower");
+                }
+                if(secretNumber > parsedInput){
+                    Console.WriteLine($"{parsedInput} is to low! guess higher");
+                }
 
             if(i == 4 && parsedInput != secretNumber)
             {
