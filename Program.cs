@@ -6,7 +6,8 @@ namespace guessingGame
     {
         static void Main(string[] args)
         {
-            int secretNumber = 42;
+            Random rnd = new Random();
+            int secretNumber = rnd.Next(1,100);
 
         for(int i = 1; i <= 4; i++){
             Console.Clear();
@@ -24,7 +25,7 @@ namespace guessingGame
 
             if(i == 4 && parsedInput != secretNumber)
             {
-                Console.WriteLine("Better luck next time!");
+                Console.WriteLine($"You lose. The number was {secretNumber}. Better luck next time!");
             }
         }
         }
